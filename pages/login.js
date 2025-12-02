@@ -5,6 +5,7 @@ button.onclick = (event) => {
     login()
 }
 
+
 async function login() {
     const email = document.querySelector("#email").value
     const password = document.querySelector("#senha").value
@@ -22,14 +23,14 @@ async function login() {
         body: JSON.stringify({ user })
     }).then(response => response.json())
 
-    if (response.message){
+    if (response.message) {
         alert(response.message)
         return
     }
 
-    const{ id, name } = response
+    const { id, name } = response
 
-    sessionStorage.setItem("user", JSON.stringify({id, name}))
+    sessionStorage.setItem("user", JSON.stringify({ id, name }))
 
     alert("Login realizado com sucesso!")
 
