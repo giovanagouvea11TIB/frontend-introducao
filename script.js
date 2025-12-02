@@ -14,8 +14,11 @@ function init() {
                 <a href="./pages/jogar.html">Jogar</a>
             </li>
             <li><h2> Usuários: ${user.name}</h2></li>
-            <li><button> SAIR </button></li>  
+            <li><button id="logout"> SAIR </button></li>  
         `
+        const logoutButton = document.querySelector("#logout");
+        logoutButton.addEventListener("click", logout);
+
         return
     }
 
@@ -25,6 +28,11 @@ function init() {
             <a href="./pages/login.html">Login</a>
         </li>
     `
+}
+
+function logout(){
+    sessionStorage.removeItem("user");
+    window.location.reload();
 }
 
 init()
